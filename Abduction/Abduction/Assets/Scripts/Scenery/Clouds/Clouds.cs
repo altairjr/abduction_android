@@ -9,11 +9,12 @@ public class Clouds : MonoBehaviour
 
     private float speed_ = 1;
 
-    public bool innerConfiner_; 
+    private bool innerConfiner_ = true; 
 
     private void Update()
     {
         CloudsMove();
+        UpdateList();
     }
 
     private void CloudsMove()
@@ -27,7 +28,7 @@ public class Clouds : MonoBehaviour
     {
         if(innerConfiner_ == false)
         {
-            GameController.clouds_.Remove(gameObject);
+            CloudsController.clouds_.Remove(gameObject);
             Destroy(gameObject);
         }
     }
