@@ -1972,6 +1972,7 @@ GameObject:
   - component: {fileID: 546364349}
   - component: {fileID: 546364350}
   - component: {fileID: 546364351}
+  - component: {fileID: 546364352}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2005,14 +2006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767372c6f9f8bbf4a995668b819413ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpawn_: 7.5
-  cloud_:
-  - {fileID: 3441760458330401326, guid: ca0eb427fc726dd4eb7efbb9a5d8ebdf, type: 3}
-  - {fileID: 5606813778569806044, guid: baa96b70346fdc648a1915ff41723d6b, type: 3}
-  - {fileID: 9007440135478968781, guid: a1223a19eed94a8449b8cec139f94127, type: 3}
-  spawnPoint_01: {fileID: 1192018808}
-  spawnPoint_02: {fileID: 1864784310}
-  packClouds_: {fileID: 656522859}
 --- !u!114 &546364351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,6 +2028,26 @@ MonoBehaviour:
   language_pt_menuSettings_: {fileID: 500843924}
   language_pt_menuStart_: {fileID: 2050683151}
   buttonActivePT_: {fileID: 63587240}
+--- !u!114 &546364352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546364348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b1950bc4e20264cb8c8ddf456ff99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSpawn_: 7.5
+  cloud_:
+  - {fileID: 3441760458330401326, guid: ca0eb427fc726dd4eb7efbb9a5d8ebdf, type: 3}
+  - {fileID: 5606813778569806044, guid: baa96b70346fdc648a1915ff41723d6b, type: 3}
+  - {fileID: 9007440135478968781, guid: a1223a19eed94a8449b8cec139f94127, type: 3}
+  spawnPoint_01: {fileID: 1192018808}
+  spawnPoint_02: {fileID: 1864784310}
+  packClouds_: {fileID: 656522859}
 --- !u!1 &591400428
 GameObject:
   m_ObjectHideFlags: 0

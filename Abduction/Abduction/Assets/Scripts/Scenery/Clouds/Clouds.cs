@@ -28,7 +28,7 @@ public class Clouds : MonoBehaviour
     {
         if(innerConfiner_ == false)
         {
-            CloudsController.clouds_.Remove(gameObject);
+            CloudController.clouds_.Remove(gameObject);
             Destroy(gameObject);
         }
     }
