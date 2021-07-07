@@ -27,9 +27,6 @@ public class CloudController : MonoBehaviour
 
     private void SpawnClouds()
     {
-        float _point_01 = spawnPoint_01.position.y;
-        float _point_02 = spawnPoint_02.position.y;
-
         var position = new Vector3(spawnPoint_01.position.x, Random.Range(spawnPoint_01.position.y, spawnPoint_02.position.y), 0);
 
         for (int i = 0; i < cloud_.Length; i++)

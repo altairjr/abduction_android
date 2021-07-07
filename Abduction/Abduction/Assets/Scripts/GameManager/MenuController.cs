@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
     [Header("Menu")]
     [SerializeField] private GameObject startMenu_;
     [SerializeField] private GameObject settingtMenu_;
+    [SerializeField] private GameObject inGameMenu_;
     private GameObject menuActive_;
 
     [Header("Language EN")]
@@ -47,6 +48,7 @@ public class MenuController : MonoBehaviour
     {
         startMenu_.SetActive(false);
         settingtMenu_.SetActive(false);
+        inGameMenu_.SetActive(false);
 
         menu.SetActive(true);
     }
@@ -54,6 +56,36 @@ public class MenuController : MonoBehaviour
     public void OnClickYesQuitGame()
     {
         Application.Quit();
+    }
+
+    public void OnClickStartGame()
+    {
+        GameController.startGame_ = true;
+    }
+
+    public void OnClickSettingsInGame()
+    {
+        if (GameController.startGame_)
+            GameController.pauseGame_ = true;
+    }
+
+    public void OnClickReturn()
+    {
+        if (GameController.startGame_)
+        {
+            GameController.pauseGame_ = false;
+            ChangeMenu(inGameMenu_);
+        }
+        else
+        {
+            ChangeMenu(startMenu_);
+        }
+    }
+
+    public void OnClickReturnMenu()
+    {
+        ChangeMenu(startMenu_);
+        GameController.startGame_ = false;
     }
 
     #endregion
