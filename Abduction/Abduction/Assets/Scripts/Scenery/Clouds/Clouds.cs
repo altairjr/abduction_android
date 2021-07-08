@@ -5,47 +5,58 @@ using UnityEngine;
 public class Clouds : MonoBehaviour
 {
     [Header("Velocity multiplier")]
-    public float multiplayerSpeed_;
+    public float multiplayerSpeed_X_;
+    public float multiplayerSpeed_Y_;
+    private float speed_x_ = 1;
+    private float speed_y_ = 1;
 
-    private float speed_ = 1;
+    private bool cloudsDown_;
+    private float time_;
 
-    private bool innerConfiner_ = true; 
+    private MeshRenderer cloudsMaterial_;
 
+    private void Awake()
+    {
+        SetComponent();
+    }
     private void Update()
     {
-        CloudsMove();
-        UpdateList();
+        MoveClouds();
     }
 
-    private void CloudsMove()
+    private void SetComponent()
     {
-        float _speed;
-        _speed = (speed_ * multiplayerSpeed_) * Time.deltaTime;
-        gameObject.transform.Translate(new Vector2(_speed, 0));
+        if(cloudsMaterial_ == null)
+            cloudsMaterial_ = GetComponent<MeshRenderer>();
     }
 
-    private void UpdateList()
+    private void MoveClouds()
     {
-        if(innerConfiner_ == false)
+        if (!GameController.startGame_)
         {
-            CloudController.clouds_.Remove(gameObject);
-            Destroy(gameObject);
+            speed_x_ = 1;
+            cloudsMaterial_.material.mainTextureOffset += new Vector2((speed_x_ * multiplayerSpeed_X_) * Time.deltaTime, 0);
+            cloudsDown_ = false;
+            time_ = 0;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("ConfinerCloud"))
+        if(GameController.startGame_)
         {
-            innerConfiner_ = true;
+            speed_x_ = 1;
+            cloudsDown_ = true;
+            cloudsMaterial_.material.mainTextureOffset += new Vector2((speed_x_ * multiplayerSpeed_X_) * Time.deltaTime, 0);
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("ConfinerCloud"))
+        if (cloudsDown_)
         {
-            innerConfiner_ = false;
+            time_ += Time.deltaTime;
+        }
+
+        if(time_ >= 5)
+        {
+            time_ = 5;
+            speed_x_ = 0.2f;
+            cloudsMaterial_.material.mainTextureOffset += new Vector2((speed_x_ * multiplayerSpeed_X_) * Time.deltaTime, (speed_y_ * multiplayerSpeed_Y_) * Time.deltaTime);
         }
     }
 }
