@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
   m_HaloStrength: 0.5
@@ -1595,7 +1595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213297633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -400, z: 0}
   m_LocalScale: {x: 812.6985, y: 812.6985, z: 812.6985}
   m_Children:
   - {fileID: 216489396}
@@ -3705,7 +3705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704003337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1872, y: 0.3582, z: 4}
+  m_LocalPosition: {x: 0.1872, y: 0.3582, z: 3}
   m_LocalScale: {x: 3.715047, y: 5.8090134, z: 1}
   m_Children: []
   m_Father: {fileID: 199625610}
@@ -5539,7 +5539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031634507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.000030517578, z: 0}
+  m_LocalPosition: {x: 0, y: -400, z: 0}
   m_LocalScale: {x: 812.6986, y: 812.6986, z: 812.6986}
   m_Children:
   - {fileID: 347899601}
@@ -8512,7 +8512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582085333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -400, z: 0}
   m_LocalScale: {x: 812.6985, y: 812.6985, z: 812.6985}
   m_Children:
   - {fileID: 841369036}
@@ -9516,8 +9516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -371}
-  m_SizeDelta: {x: 1920, y: 3414}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 3416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1852598981
 GameObject:
@@ -10456,6 +10456,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8504212695622326000, guid: 596788544b1c4a44aaac4402fefa86f1, type: 3}
+      propertyPath: m_Intensity
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504212695622326000, guid: 596788544b1c4a44aaac4402fefa86f1, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.581
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504212695622326000, guid: 596788544b1c4a44aaac4402fefa86f1, type: 3}
+      propertyPath: m_LightVolumeOpacity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504212695622326000, guid: 596788544b1c4a44aaac4402fefa86f1, type: 3}
+      propertyPath: m_ShapeLightFalloffSize
+      value: 0.27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596788544b1c4a44aaac4402fefa86f1, type: 3}
 --- !u!1001 &7556438802220955041
@@ -10465,6 +10481,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1783188054}
     m_Modifications:
+    - target: {fileID: 1165714425687022866, guid: 74bf50b159b004a4eabe8c30a93e892d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573320721416163303, guid: 74bf50b159b004a4eabe8c30a93e892d, type: 3}
       propertyPath: m_Name
       value: spaceship_background
