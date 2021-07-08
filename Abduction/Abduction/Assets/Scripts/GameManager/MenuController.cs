@@ -42,6 +42,22 @@ public class MenuController : MonoBehaviour
         SetButttonAudio();
     }
 
+    #region Check click UI in game
+
+    public void EnterClickButtons()
+    {
+        GameController.clickButtonUI_ = true;
+        Debug.Log(GameController.clickButtonUI_);
+    }
+
+    public void ExitClickButtons()
+    {
+        GameController.clickButtonUI_ = false;
+        Debug.Log(GameController.clickButtonUI_);
+    }
+
+    #endregion
+
     #region Menu Controller
 
     private void ChangeMenu(GameObject menu)
@@ -74,6 +90,7 @@ public class MenuController : MonoBehaviour
         if (GameController.startGame_)
         {
             GameController.pauseGame_ = false;
+            GameController.clickButtonUI_ = false;
             ChangeMenu(inGameMenu_);
         }
         else

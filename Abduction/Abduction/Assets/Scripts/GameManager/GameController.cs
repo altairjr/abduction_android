@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     public static bool pauseGame_ = false;
     public static bool cutSceneStartGame_ = false;
     public static bool cutSceneStartGameRunnable_ = false;
+    public static bool clickButtonUI_ = false;
 
     private float timeCut_;
     private float timeCutMax_;
@@ -40,7 +41,24 @@ public class GameController : MonoBehaviour
     {
         PlayMusic();
         StartGameCutScene();
+        PauseGame();
     }
+
+    #region GameController
+
+    private void PauseGame()
+    {
+        if (pauseGame_)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    #endregion
 
     #region System CutScene Controll
 

@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private float speedMove_ = 2f;
     private int inputPos_ = 0;
 
+    private bool posRight_;
+    private bool posLeft_;
+
     private Animator animator_;
     private SpriteRenderer cowSprinte_;
 
@@ -30,7 +33,54 @@ public class PlayerController : MonoBehaviour
         StartAbduction();
         InputPlayer();
         MovePlayer();
+        Reset();
     }
+
+    #region InputPlayer
+
+    private void InputPlayer()
+    {
+        if (GameController.startGame_ && !GameController.pauseGame_ && !GameController.clickButtonUI_ && GameController.cutSceneStartGameRunnable_)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (inputPos_ == 0 && !posLeft_)
+                {
+                    inputPos_ = 1;
+                }
+                else if (inputPos_ == 1 && !posRight_)
+                {
+                    inputPos_ = 0;
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region Player Controller
+
+    private void MovePlayer()
+    {
+        if(GameController.startGame_ && !GameController.pauseGame_ && !GameController.cutSceneStartGame_ && GameController.cutSceneStartGameRunnable_)
+        {
+            if (inputPos_ == 0)
+            {
+                transform.position = Vector2.MoveTowards(gameObject.transform.position, positionAbductionRight_.position, speedMove_ * Time.deltaTime);
+                cowSprinte_.flipX = false;
+            }
+
+            if (inputPos_ == 1)
+            {
+                transform.position = Vector2.MoveTowards(gameObject.transform.position, positionAbductionLeft_.position, speedMove_ * Time.deltaTime);
+                cowSprinte_.flipX = true;
+            }
+        }
+    }
+
+    #endregion
+
+    #region GameController
 
     private void SetComponent()
     {
@@ -60,43 +110,42 @@ public class PlayerController : MonoBehaviour
         {
             timeCutScene_ = 0;
             animator_.SetBool(parameterAbductionAnimator, false);
-            transform.position = new Vector2(gameObject.transform.position.x, posStart_.position.y);
-        }
-    }
-    
-    private void InputPlayer()
-    {
-        if (GameController.startGame_ && !GameController.pauseGame_)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (inputPos_ == 0)
-                {
-                    inputPos_ = 1;
-                }
-                else if (inputPos_ == 1)
-                {
-                    inputPos_ = 0;
-                }
-            }
+            transform.position = new Vector2(posStart_.position.x, posStart_.position.y);
         }
     }
 
-    private void MovePlayer()
+    private void Reset()
     {
-        if(GameController.startGame_ && !GameController.pauseGame_ && !GameController.cutSceneStartGame_)
+        if (!GameController.startGame_)
         {
-            if (inputPos_ == 0)
-            {
-                transform.position = Vector2.MoveTowards(gameObject.transform.position, positionAbductionRight_.position, speedMove_ * Time.deltaTime);
-                cowSprinte_.flipX = false;
-            }
-
-            if (inputPos_ == 1)
-            {
-                transform.position = Vector2.MoveTowards(gameObject.transform.position, positionAbductionLeft_.position, speedMove_ * Time.deltaTime);
-                cowSprinte_.flipX = true;
-            }
+            inputPos_ = 0;
+            posRight_ = true;
+            posLeft_ = false;
+            cowSprinte_.flipX = false;
+            GameController.clickButtonUI_ = false;
+            animator_.SetBool(parameterAbductionAnimator, false);
+            transform.position = new Vector2(posStart_.position.x, posStart_.position.y);
         }
     }
+
+    #endregion
+
+    #region Trigger Controller
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("posAbductionRight"))
+        {
+            posRight_ = true;
+            posLeft_ = false;
+        }
+
+        if (collision.CompareTag("posAbductionLeft"))
+        {
+            posLeft_ = true;
+            posRight_ = false;
+        }
+    }
+
+    #endregion
 }
