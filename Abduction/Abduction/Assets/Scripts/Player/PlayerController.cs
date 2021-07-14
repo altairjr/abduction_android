@@ -9,8 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform positionAbductionLeft_;
     [SerializeField] private Transform posStart_;
 
-
-    private float speedMove_ = 2f;
+    private float speedMove_ = 4f;
     private int inputPos_ = 0;
 
     private bool posRight_;
@@ -21,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private string parameterAbductionAnimator = "abduction";
     private float timeCutScene_;
+
+    public int life_ = 2;
 
     private void Awake()
     {
@@ -144,6 +145,11 @@ public class PlayerController : MonoBehaviour
         {
             posLeft_ = true;
             posRight_ = false;
+        }
+
+        if (collision.CompareTag("Obstacles"))
+        {
+            life_--;
         }
     }
 

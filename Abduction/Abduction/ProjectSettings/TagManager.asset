@@ -7,6 +7,9 @@ TagManager:
   - ConfinerCloud
   - posAbductionRight
   - posAbductionLeft
+  - Endzone
+  - Coins
+  - Obstacles
   layers:
   - Default
   - TransparentFX
