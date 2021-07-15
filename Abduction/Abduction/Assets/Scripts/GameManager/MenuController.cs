@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [Header("Menu")]
-    [SerializeField] private GameObject startMenu_;
-    [SerializeField] private GameObject settingtMenu_;
-    [SerializeField] private GameObject inGameMenu_;
+    [SerializeField] public GameObject startMenu_;
+    [SerializeField] public GameObject settingtMenu_;
+    [SerializeField] public GameObject inGameMenu_;
     private GameObject menuActive_;
 
     [Header("Language EN")]
@@ -60,13 +60,18 @@ public class MenuController : MonoBehaviour
 
     #region Menu Controller
 
-    private void ChangeMenu(GameObject menu)
+    public void ChangeMenu(GameObject menu)
     {
         startMenu_.SetActive(false);
         settingtMenu_.SetActive(false);
         inGameMenu_.SetActive(false);
 
         menu.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        ChangeMenu(startMenu_);
     }
 
     public void OnClickYesQuitGame()

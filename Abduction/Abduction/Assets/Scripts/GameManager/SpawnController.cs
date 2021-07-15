@@ -40,7 +40,7 @@ public class SpawnController : MonoBehaviour
     private float maxTimeCollectable = 0.5f;
     private int positionCollectable;
 
-    void Update()
+    private void Update()
     {
         if (GameController.startGame_ && GameController.cutSceneStartGameRunnable_)
         {
@@ -49,7 +49,7 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    void SpawnObstacles()
+    private void SpawnObstacles()
     {
         timeObstacle += Time.deltaTime;
         if (timeObstacle >= maxTimeObstacle)
@@ -75,7 +75,7 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    void SpawnCollectables()
+    private void SpawnCollectables()
     {
         timeCollectable += Time.deltaTime;
         if (timeCollectable >= maxTimeCollectable)

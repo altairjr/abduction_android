@@ -49,6 +49,7 @@ public class Spaceship : MonoBehaviour
         }
         else
         {
+            time_ = 0;
             animator_.SetBool(parametersAnimator_01_, false);
             animator_.SetBool(parametersAnimator_02_, false);
             GameController.cutSceneStartGame_ = false;

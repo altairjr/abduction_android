@@ -10,7 +10,20 @@ public class Obstacles : MonoBehaviour
     void Update()
     {
         ControllerObstacles();
+        Restart();
     }
+
+    #region GameControlle
+
+    private void Restart()
+    {
+        if (!GameController.startGame_)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    #endregion
 
     #region Controll Obstacles
 

@@ -91,6 +91,7 @@ public class GameController : MonoBehaviour
         else
         {
             cutSceneStartGame_ = false;
+            cutSceneStartGameRunnable_ = false;
             sceneryDown_ = false;
             timeSceneryDown_ = 0;
             animatorScenery_.SetBool(parameterAnimatorScenery_, false);
