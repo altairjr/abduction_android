@@ -3691,6 +3691,8 @@ MonoBehaviour:
   posY_02_: -1
   posY_01_: -1.6
   cameraShake_: {fileID: 806069694}
+  textCoinsInGame_: {fileID: 66061141}
+  textPointsInGame_: {fileID: 129119861}
 --- !u!95 &745020362
 Animator:
   serializedVersion: 3
